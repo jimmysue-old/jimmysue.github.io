@@ -394,82 +394,58 @@ w_j x_j > \mbox{阈值}$写起来有些冗长，我们通过两步来简化它�
 
 上面与非门的例子为我们展示了如何用感知机进行简单的逻辑运算。
 事实上，我们可以用感知机作任何的逻辑运算，因为我们可以用与非门构建所有的逻辑运算。
- 
 
- 
-For example, we can use <CODE>NAND</CODE> gates to
-build a circuit which adds two bits, $x_1$ and $x_2$.
-举个例子，我们可以通过与非门 
+举个例子，我们可以通过与非门实现二进制数$x_1$ 和 $x_2$的加法运算。
+这个运算需要将$x_1 x_2$按位求和，$x_1 \oplus x_2$，另外需要设置进位，当 $x_1$ 和 $x_2$同为$1$的时候
+进位为1，也即进位等于二者的乘积$x_1 x_2$：
 
-This requires
-computing the bitwise sum, $x_1 \oplus x_2$, as well as a carry bit
-which is set to $1$ when both $x_1$ and $x_2$ are $1$, i.e., the carry
-bit is just the bitwise product $x_1 x_2$:
 <center>
  <img src="images/tikz3.png"/>
 </center>
-To get an equivalent network of perceptrons we replace all the
-<CODE>NAND</CODE> gates by perceptrons with two inputs, each with weight
-$-2$, and an overall bias of $3$.  Here's the resulting network.  Note
-that I've moved the perceptron corresponding to the bottom right
-<CODE>NAND</CODE> gate a little, just to make it easier to draw the arrows
-on the diagram:
+
+将上面的与非门替换为前文中的感知机——两个权重为-2的输入项、偏差为3——我们便得到了等效的
+感知机神经网络。图示如下：
 <center>
  <img src="images/tikz4.png"/>
 </center>
-One notable aspect of this network of perceptrons is that the output
-from the leftmost perceptron is used twice as input to the bottommost
-perceptron.  When I defined the perceptron model I didn't say whether
-this kind of double-output-to-the-same-place was allowed.  Actually,
-it doesn't much matter.  If we don't want to allow this kind of thing,
-then it's possible to simply merge the two lines, into a single
-connection with a weight of -4 instead of two connections with -2
-weights.  (If you don't find this obvious, you should stop and prove
-to yourself that this is equivalent.)  With that change, the network
-looks as follows, with all unmarked weights equal to -2, all biases
-equal to 3, and a single weight of -4, as marked:
+
+需要注意的是，最左边的感知机的输出被最下面的感知机重复使用两次。看起来像最左边的感知机产生
+两次输出用作最下边的感知机的输入。
+笔者之前在定义感知机的时候并没有说明输出两次是否允许。其实这些都无所谓，通过合并两条输入线，并把它的权重改为-4
+便可以解决问题：
 <center>
  <img src="images/tikz5.png"/>
 </center>
-Up to now I've been drawing inputs like $x_1$ and $x_2$ as variables
-floating to the left of the network of perceptrons.  In fact, it's
-conventional to draw an extra layer of perceptrons - the <em>input
-  layer</em> - to encode the inputs:
+上面所有的示意图，我们将输入变量画在神经网络的左侧，按照惯例，可以将输入看作一层额外的感知机，这一层
+称作<em>输入层</em>：
+
 <center>
  <img src="images/tikz6.png"/>
 </center>
-This notation for input perceptrons, in which we have an output, but
-no inputs,
+这样，输入层感知机看起来像只有输出没有输入：
 <center>
 <img src="images/tikz7.png"/>
 </center>
-is a shorthand.  It doesn't actually mean a perceptron with no inputs.
-To see this, suppose we did have a perceptron with no inputs.  Then
-the weighted sum $\sum_j w_j x_j$ would always be zero, and so the
-perceptron would output $1$ if $b > 0$, and $0$ if $b \leq 0$.  That
-is, the perceptron would simply output a fixed value, not the desired
-value ($x_1$, in the example above). It's better to think of the
-input perceptrons as not really being perceptrons at all, but rather
-special units which are simply defined to output the desired values,
-$x_1, x_2,\ldots$.</p><p>The adder example demonstrates how a network of perceptrons can be
-used to simulate a circuit containing many <CODE>NAND</CODE> gates.  And
-because <CODE>NAND</CODE> gates are universal for computation, it follows
-that perceptrons are also universal for computation.</p><p>The computational universality of perceptrons is simultaneously
-reassuring and disappointing.  It's reassuring because it tells us
-that networks of perceptrons can be as powerful as any other computing
-device.  But it's also disappointing, because it makes it seem as
-though perceptrons are merely a new type of <CODE>NAND</CODE> gate.
-That's hardly big news!</p><p>However, the situation is better than this view suggests.  It turns
-out that we can devise <em>learning
-  algorithms</em> which can
-automatically tune the weights and biases of a network of artificial
-neurons.  This tuning happens in response to external stimuli, without
-direct intervention by a programmer.  These learning algorithms enable
-us to use artificial neurons in a way which is radically different to
-conventional logic gates.  Instead of explicitly laying out a circuit
-of <CODE>NAND</CODE> and other gates, our neural networks can simply learn
-to solve problems, sometimes problems where it would be extremely
-difficult to directly design a conventional circuit.</p><p><h3><a name="sigmoid_neurons"></a><a href="#sigmoid_neurons">Sigmoid neurons</a></h3></p><p>Learning algorithms sound terrific.  But how can we devise such
+其实不然。如果一个感知机只有输出，没有输入的话，那么加权求和$\sum_j w_j x_j$的结果总是
+为$0$，如果感知机的偏差$b = 0$, 那么感知机将总是输出$0$。这就意味着，对应的感知机总是输出
+一个固定值，而不能得到我们要的值，如$x_1$。所以，最好将输入层看做是一些特殊的单位，它们
+被定义成许多输入值，比如$x_1, x_2,\ldots$。
+</p>
+<p>
+上面加法运算的例子展示了如何用感知神经网络模拟多个与非门组成的电路图。
+
+因为与非门是计算的基本单元，说明了感知机也是计算的基本单元。这意味着感知机网络可以像其他
+计算设备一样强大，但如果仅仅是另一种与非门，似乎没什么了不起的！
+
+</p>
+
+<p>
+   其实它远比看起来的要强大得多。它的强大依赖于<em>学习算法</em>，通过它能够让人工神经网络
+   自动调整输入的权重和偏差。这些调整的发生需要外界的刺激，但不需要程序员直接干预。学习算法
+   克服了某些问题无法直接用逻辑运算门表达的情况。这样神经网络就能通过自我学习解决那些我们很难直接
+   用一般的电路表达的问题。</p>
+ 
+<p><h3><a name="sigmoid_neurons"></a><a href="#sigmoid_neurons">Sigmoid neurons</a></h3></p><p>Learning algorithms sound terrific.  But how can we devise such
 algorithms for a neural network?  Suppose we have a network of
 perceptrons that we'd like to use to learn to solve some problem.  For
 example, the inputs to the network might be the raw pixel data from a
