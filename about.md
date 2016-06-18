@@ -4,6 +4,6 @@ title: About
 permalink: /about/
 ---
 
-I am freelance developer. Currently doing more in backend, actually in Python and Django.
+Currently working in meitu.com as a computer vision engineer.
 
-email: agus[at]python.web.id
+email: fjsjinz[at]gmail.com
