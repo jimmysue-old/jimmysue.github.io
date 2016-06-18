@@ -4,6 +4,6 @@ title: About
 permalink: /about/
 ---
 
-Currently working in meitu.com as a computer vision engineer.
+Currently working for meitu.com as a computer vision engineer.
 
 email: fjsjinz[at]gmail.com
