@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "博客模板"
-date:   2016-06-19 02:24:23 +0700
+date:   2016-06-18 02:24:23 +0700
 categories: [misc]
 author: Jimmy Sue
 ---
