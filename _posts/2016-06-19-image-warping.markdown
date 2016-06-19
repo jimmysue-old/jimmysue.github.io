@@ -1,12 +1,10 @@
 ---
 layout: post
-title:  "博客模板"
-date:   2016-06-19 22:00:23
+title:  "Geometric Transformations: Warping, Registration, Morphing"
+date:   2016-06-19 14:00:23 +0800
 categories: [misc]
 author: Jimmy Sue
 ---
-
-# Geometric Transformations: Warping, Registration, Morphing
 
 ## 有用资源
 
@@ -14,4 +12,4 @@ author: Jimmy Sue
 - [Matlab Image Warping](http://web.mit.edu/emeyers/www/warping/warp.html)
 - [Geometric Transformations: Warping, Registration, Morphing](http://eeweb.poly.edu/~yao/EL5123/lecture12_ImageWarping.pdf)
 - [Image Warping Implementation](https://www.cs.princeton.edu/courses/archive/fall00/cs426/lectures/warp/sld026.htm)
-- [Image Warping with examples in Matlab] (http://www.ece.ucsb.edu/~manj/ece178-Fall2008/ImageWarping)
+- [Image Warping with examples in Matlab](http://www.ece.ucsb.edu/~manj/ece178-Fall2008/ImageWarping)
