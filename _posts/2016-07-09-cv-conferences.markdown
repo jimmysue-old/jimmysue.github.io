@@ -20,6 +20,7 @@ author: Jimmy Sue
 ## CVPR: 
 
 >国际计算机视觉与模式识别会议（CVPR）是IEEE一年一度的学术性会议，会议的主要内容是计算机视觉与模式识别技术。CVPR是世界顶级的计算机视觉会议（三大顶会之一，另外两个是`ICCV`和`ECCV`），近年来每年有约1500名参加者，收录的论文数量一般300篇左右。本会议每年都会有固定的研讨主题，而每一年都会有公司赞助该会议并获得在会场展示的机会。
+
 - [CVPR2016 论文集](http://www.cv-foundation.org/openaccess/CVPR2016.py)
 - [CVPR2016 HOME](http://cvpr2016.thecvf.com/)
 
