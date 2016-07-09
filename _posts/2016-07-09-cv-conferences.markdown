@@ -2,7 +2,7 @@
 layout: post
 title:  "计算机视觉及机器学习相关会议列表"
 date:   2016-07-09 00:00:23 +0800
-categories: [misc, cv, ml]
+categories: [misc]
 author: Jimmy Sue
 ---
 ## ICCV:
