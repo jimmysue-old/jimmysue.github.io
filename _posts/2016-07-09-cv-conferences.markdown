@@ -37,4 +37,19 @@ author: Jimmy Sue
 ## ICML
 
 >ICML 是 International Conference on Machine Learning的缩写，即国际机器学习大会。ICML如今已发展为由国际机器学习学会（IMLS）主办的年度机器学习国际顶级会议。
-    
+
+## SIGGRAPH
+
+>SIGGRAPH（Special Interest Group for Computer GRAPHICS，计算机图形图像特别兴趣小组）成立于1967年，一直致力于推广和发展计算机绘图和动画制作的软硬件技术。从1974年开始，SIGGRAPH每年都会举办一次年会，而从1981年开始每年的年会还增加了CG（Computer Graphics，电脑绘图）展览。绝大部分计算机图技术软硬件厂商每年都会将最新研究成果拿到SIGGRAPH年会上发布，大部分游戏的电脑动画创作者也将他们本年度最杰出的艺术作品集中在SIGGRAPH上展示。因此，SIGGRAPH在图形图像技术，计算机软硬件以及CG等方面都有着相当的影响力。
+
+## ICLR
+
+>**International Conference on Learning Representations**
+
+>It is well understood that the performance of machine learning methods is heavily dependent on the choice of data representation (or features) on which they are applied. The rapidly developing field of representation learning is concerned with questions surrounding how we can best learn meaningful and useful representations of data. We take a broad view of the field, and include in it topics such as deep learning and feature learning, metric learning, kernel learning, compositional models, non-linear structured prediction, and issues regarding non-convex optimization. 
+
+>Despite the importance of representation learning to machine learning and to application areas such as vision, speech, audio and NLP, there was no venue for researchers who share a common interest in this topic. The goal of ICLR has been to help fill this void.
+
+>The conference follows a recently introduced open reviewing and open publishing publication process, which is explained in further detail here.
+
+>Yoshua Bengio & Yann Lecun, General Chairs
