@@ -122,13 +122,13 @@ var clm = {
 			sketchH = sketchCanvas.height = modelHeight + (searchWindow-1) + patchSize-1;
 			
 			if (model.hints && mosseFilter && left_eye_filter && right_eye_filter && nose_filter) {
-				//var mossef_lefteye = new mosseFilter({drawResponse : document.getElementById('overlay2')});
+				var mossef_lefteye = new mosseFilter({drawResponse : document.getElementById('overlay2')});
 				mossef_lefteye = new mosseFilter();
 				mossef_lefteye.load(left_eye_filter);
-				//var mossef_righteye = new mosseFilter({drawResponse : document.getElementById('overlay2')});
+				var mossef_righteye = new mosseFilter({drawResponse : document.getElementById('overlay2')});
 				mossef_righteye = new mosseFilter();
 				mossef_righteye.load(right_eye_filter);
-				//var mossef_nose = new mosseFilter({drawResponse : document.getElementById('overlay2')});
+				var mossef_nose = new mosseFilter({drawResponse : document.getElementById('overlay2')});
 				mossef_nose = new mosseFilter();
 				mossef_nose.load(nose_filter);
 			} else {
