@@ -1,1 +1,0 @@
-# Note book of Jimmy Sue
